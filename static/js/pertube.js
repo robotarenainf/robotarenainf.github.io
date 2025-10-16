@@ -111,6 +111,41 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
+  // perturbationTabs.forEach(tab => {
+  //   tab.addEventListener('click', () => {
+  //     if (!currentScene) {
+  //       alert("Please select a scenario from the slider first.");
+  //       return;
+  //     }
+      
+  //     const perturbationKey = tab.dataset.key;
+      
+  //     // Update active tab style
+  //     perturbationTabs.forEach(t => t.classList.remove('is-active'));
+  //     tab.classList.add('is-active');
+      
+  //     // === THIS IS THE ONLY PART THAT HAS BEEN CHANGED ===
+  //     if (perturbationKey === 'original') {
+  //         // This part is from your original working code
+  //         const videoSrc = galleryData[currentScene].perturbations.original;
+  //         loadVideo(videoSrc);
+  //     } else {
+  //         // NEW: Randomly select a variant and play it immediately
+  //         const variants = perturbationVariants[perturbationKey];
+  //         if (variants && variants.length > 0) {
+  //           const randomIndex = Math.floor(Math.random() * variants.length);
+  //           const randomVariant = variants[randomIndex];
+            
+  //           // Uses your original, correct file path structure
+  //           const videoSrc = `./static/videos/pertube/${currentScene}/${randomVariant.file}`;
+  //           loadVideo(videoSrc);
+  //         } else {
+  //           console.warn(`No variants found for perturbation type: ${perturbationKey}`);
+  //           videoPlayer.src = "";
+  //         }
+  //     }
+  //   });
+  // });
   perturbationTabs.forEach(tab => {
     tab.addEventListener('click', () => {
       if (!currentScene) {
@@ -123,30 +158,37 @@ document.addEventListener('DOMContentLoaded', function() {
       // Update active tab style
       perturbationTabs.forEach(t => t.classList.remove('is-active'));
       tab.classList.add('is-active');
-      
-      // === THIS IS THE ONLY PART THAT HAS BEEN CHANGED ===
+  
       if (perturbationKey === 'original') {
-          // This part is from your original working code
-          const videoSrc = galleryData[currentScene].perturbations.original;
-          loadVideo(videoSrc);
+        const videoSrc = galleryData[currentScene].perturbations.original;
+        loadVideo(videoSrc);
+        return;
+      }
+  
+      const variants = perturbationVariants[perturbationKey];
+      if (variants && variants.length > 0) {
+        // persistent indices per (scene, perturbation)
+        if (!window.variantIndices) window.variantIndices = {};
+        const key = `${currentScene}_${perturbationKey}`;
+  
+        // Correct initialization check (don't use falsy check)
+        if (typeof window.variantIndices[key] === 'undefined') {
+          window.variantIndices[key] = 0;
+        } else {
+          window.variantIndices[key] = (window.variantIndices[key] + 1) % variants.length;
+        }
+  
+        const variant = variants[window.variantIndices[key]];
+        const videoSrc = `./static/videos/pertube/${currentScene}/${variant.file}`;
+        console.log(`Playing ${perturbationKey} variant:`, variant, 'index:', window.variantIndices[key]);
+        loadVideo(videoSrc);
       } else {
-          // NEW: Randomly select a variant and play it immediately
-          const variants = perturbationVariants[perturbationKey];
-          if (variants && variants.length > 0) {
-            const randomIndex = Math.floor(Math.random() * variants.length);
-            const randomVariant = variants[randomIndex];
-            
-            // Uses your original, correct file path structure
-            const videoSrc = `./static/videos/pertube/${currentScene}/${randomVariant.file}`;
-            loadVideo(videoSrc);
-          } else {
-            console.warn(`No variants found for perturbation type: ${perturbationKey}`);
-            videoPlayer.src = "";
-          }
+        console.warn(`No variants found for perturbation type: ${perturbationKey}`);
+        videoPlayer.src = "";
       }
     });
   });
-
+  
   // --- INITIALIZATION ---
   const perturbationCarousel = perturbationSection.querySelector('.carousel');
   if (perturbationCarousel && typeof bulmaCarousel !== 'undefined') {
