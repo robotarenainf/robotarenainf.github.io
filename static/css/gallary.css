@@ -1,0 +1,205 @@
+/* === Video Player Container === */
+  .video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 62.5%;; /* 16:9 aspect ratio */
+    height: 0;
+    border-radius: 12px; /* Soft rounded corners */
+    overflow: hidden; /* Ensures the video respects the border-radius */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* A subtle, modern shadow */
+    background-color: #000;
+  }
+  
+  .video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* === Carousel Thumbnail Styling === */
+  #gallery-carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 1.5rem; /* Add space for the scrollbar */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
+  }
+  /* Custom scrollbar for a cleaner look (for Webkit browsers) */
+  #gallery-carousel::-webkit-scrollbar {
+      height: 8px;
+  }
+  #gallery-carousel::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+  }
+  #gallery-carousel::-webkit-scrollbar-thumb {
+      background: #cccccc;
+      border-radius: 10px;
+  }
+  #gallery-carousel::-webkit-scrollbar-thumb:hover {
+      background: #b3b3b3;
+  }
+  .thumbnail-item {
+    cursor: pointer;
+    border: 3px solid transparent;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    position: relative; /* Needed for the overlay */
+  }
+  
+  .thumbnail-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .thumbnail-item img {
+    display: block;
+    width: 100%;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .thumbnail-item:hover::after,
+  .thumbnail-item.is-active::after {
+    opacity: 0; /* Fade out the dark overlay on hover/active */
+  }
+  
+  .thumbnail-item:hover img {
+    transform: scale(1.08); /* A slightly more pronounced zoom effect */
+  }
+  
+  .thumbnail-item.is-active {
+    border-color: #485fc7; /* A nice shade of blue */
+    box-shadow: 0 0 15px rgba(72, 95, 199, 0.5);
+  }
+  
+  /* === Carousel Navigation Arrows === */
+  .carousel .carousel-nav-left,
+  .carousel .carousel-nav-right {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .carousel .carousel-nav-left:hover,
+  .carousel .carousel-nav-right:hover {
+    background-color: white;
+    transform: scale(1.1);
+  }
+  
+  /* === Variant Navigation Buttons === */
+  #variant-navigation {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+  }
+  
+  .variant-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+  }
+  
+  .variant-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 90px;
+    background: #f4f7f9;
+    border: 2px solid #e8eaf0;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    text-align: center;
+  }
+  
+  .variant-button:hover {
+    transform: translateY(-4px);
+    border-color: #cdd3dc;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+  }
+  
+  .variant-button.is-active {
+    background: #485fc7;
+    color: #ffffff;
+    border-color: #485fc7;
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 6px 20px rgba(72, 95, 199, 0.4);
+  }
+  
+  .variant-button.is-active .variant-name {
+    color: #ffffff;
+  }
+  
+  .variant-icon {
+    font-size: 2.25rem;
+    margin-bottom: 0.25rem;
+    line-height: 1;
+  }
+  
+  .variant-name {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #555;
+    transition: color 0.25s ease;
+  }
+  #gallery-caption {
+    font-size: 2.0rem; 
+    font-style: italic;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    min-height: 2em; 
+  }
+  
+  #gallery-caption::before {
+    content: '"';
+    margin-right: 0.3em; 
+  }
+  
+  #gallery-caption::after {
+    content: '"';
+    margin-left: 0.3em; 
+  }
+
+  #perturbation-caption {
+    font-size: 2.0rem; 
+    font-style: italic;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    min-height: 2em; 
+  }
+  
+  #perturbation-caption::before {
+    content: '"';
+    margin-right: 0.3em; 
+  }
+  
+  #perturbation-caption::after {
+    content: '"';
+    margin-left: 0.3em; 
+  }
+
+  .carousel {
+    overflow: hidden;
+  }
