@@ -198,3 +198,15 @@ body {
   line-height: 1.25;
   color: #4a4a4a;
 }
+
+.iclr-badge {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ff6b6b, #f7b733);
+  color: #111;
+  font-weight: 600;
+  font-size: 1.05rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
