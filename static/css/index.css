@@ -2,6 +2,19 @@ body {
   font-family: 'Noto Sans', sans-serif;
 }
 
+.iclr-badge {
+  display: inline-block;
+  text-align: center;
+  padding: 0.5rem 1.25rem;
+  margin: 0 auto;
+  font-size: 0.95rem;
+  color: #1a1a2e;
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border: 1px solid #f59e0b;
+  border-radius: 2rem;
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.2);
+}
+
 
 .footer .icon-link {
     font-size: 25px;
