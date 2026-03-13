@@ -1,14 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="RobotArena ∞">
-  <meta name="keywords" content="Benchmarking, Robotics Evaluation, Vision Language Action Models, Real2Sim">
+  <meta name="description" content="RobotArena ∞: Scalable Robot Benchmarking via Real-to-Sim Translation. A continuously evolving, reproducible benchmark for real-world-trained robot manipulation policies.">
+  <meta name="keywords" content="Benchmarking, Robotics Evaluation, Vision Language Action Models, Real2Sim, VLA, Robot Manipulation">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>
-    RobotArena ∞
-  </title>
+  <title>RobotArena ∞</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="RobotArena ∞: Scalable Robot Benchmarking via Real-to-Sim Translation">
+  <meta property="og:description" content="A continuously evolving, reproducible benchmark for real-world-trained robot manipulation policies using real-to-sim translation and human feedback.">
+  <meta property="og:image" content="./static/images/teaser.jpg">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-LJ8Z7H8HTR"></script>
   <script>
@@ -18,7 +23,7 @@
     gtag('config', 'G-LJ8Z7H8HTR');
   </script>
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&family=Google+Sans:wght@400;500;700&family=Noto+Sans:wght@400;500;600;700&family=Castoro&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
@@ -27,46 +32,63 @@
   <link rel="stylesheet" href="./static/css/gallary.css">
 
   <script src="https://kit.fontawesome.com/19914a84eb.js" crossorigin="anonymous"></script>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
 <body>
 
+<!-- Sticky Navbar -->
+<nav class="navbar is-fixed-top site-nav" id="site-nav" role="navigation" aria-label="main navigation">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item nav-logo" href="#">
+        <strong>RobotArena &infin;</strong>
+      </a>
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div id="navMenu" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#abstract" data-section="abstract">Abstract</a>
+        <a class="navbar-item" href="#real2sim" data-section="real2sim">Real-to-Sim</a>
+        <a class="navbar-item" href="#perturbations" data-section="perturbations">Perturbations</a>
+        <a class="navbar-item" href="#leaderboard" data-section="leaderboard">Leaderboard</a>
+        <a class="navbar-item" href="#bibtex" data-section="bibtex">BibTeX</a>
+        <div class="navbar-item">
+          <a class="button is-small is-rounded is-link" href="https://arxiv.org/pdf/2510.23571" target="_blank" rel="noopener noreferrer">
+            <span class="icon is-small"><i class="fas fa-file-pdf"></i></span>
+            <span>Paper</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
 <section class="hero is-link is-fullheight video" style="overflow: hidden; position:relative;">
   <div class="hero-video" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-    <video autoplay muted loop playsinline webkit-playsinline style="width: 100%; height: 100%; object-fit: cover;">
+    <video autoplay muted loop playsinline webkit-playsinline preload="auto" style="width: 100%; height: 100%; object-fit: cover;">
       <source src="./static/videos/teaser.mp4" type="video/mp4">
     </video>
   </div>
   <div class="overlay"></div>
-  <div class="hero-head is-hidden-mobile">
-    <header class="navbar">
-      <div class="container is-size-5">
-        <div class="navbar-menu">
-          <div class="navbar-end">
-            </div>
-        </div>
-      </div>
-    </header>
-  </div>
-  
   <div class="hero-body">
     <div class="container has-text-centered">
       <h1 class="title is-1 publication-title is-size-1-mobile" style="font-size: 8rem; color: #f1f1f1;">
         RobotArena \(\infty\)
       </h1>
-      <!-- <h1 class="title is-1 publication-title is-size-1-mobile" style="font-size: 4.5rem; color: #f1f1f1;">
-        Unlimited Robot Benchmarking via Real-to-Sim Translation
-      </h1> -->
-      </div>
     </div>
   </div>
 </section>
 
+<!-- Title / Authors -->
 <section class="section" style="margin-top: 2rem; margin-bottom: 0rem;">
   <div class="container has-text-centered" style="margin: 0.1rem auto; max-width: 900px; font-size: 0.95rem; line-height: 1.6; margin-bottom: 0rem;">
-    <h1 class="title is-2">RobotArena \(\infty\): Unlimited Robot Benchmarking via Real-to-Sim Translation</h1>
+    <h1 class="title is-2">RobotArena \(\infty\): Scalable Robot Benchmarking via Real-to-Sim Translation</h1>
     <p class="is-size-4">
       <a href="https://offjangir.github.io/">Yash Jangir</a><sup>1</sup>,
       <a href="https://zhangyidi.tech/">Yidi Zhang</a><sup>1*</sup>,
@@ -83,51 +105,44 @@
     </p>
     <p class="is-size-5">
       * denotes equal contribution
+    </p>
   </div>
   <div class="has-text-centered" style="margin-top: 1rem;">
     <div class="iclr-badge">
       🎉 Accepted at <strong>International Conference on Learning Representations (ICLR) 2026</strong>
     </div>
   </div>
-
 </section>
 
+<!-- Pill-shaped link buttons -->
 <section class="section pt-4 pb-4">
   <div class="container">
-    <div class="columns is-centered is-vcentered is-multiline" style="padding: 1.5rem 0; gap: 1rem;">
-      <div class="column is-narrow">
-        <a class="link-box box has-text-centered" href="https://arxiv.org/pdf/2510.23571" target="_blank" rel="noopener noreferrer">
-          <img src="./static/images/pdf.svg" alt="Paper" style="height: 40px; margin-bottom: 0.75rem;">
-          <p class="link-box-text">Paper</p>
-        </a>
-      </div>
-      <div class="column is-narrow">
-        <a class="link-box box has-text-centered">
-          <img src="./static/images/github.svg" alt="Code" style="height: 40px; margin-bottom: 0.75rem;">
-          <p class="link-box-text">Code Coming Soon!</p>
-        </a>
-      </div>
-      <div class="column is-narrow">
-        <a href="https://robotarenainf.zhangyidi.tech/" class="link-box box has-text-centered">
-          <span class="link-box-icon">🏆</span>
-          <p class="link-box-text">Leaderboard</p>
-        </a>
-      </div>
-      <div class="column is-narrow">
-        <a href="https://zhangyidi.tech/evaluation" class="link-box box has-text-centered">
-          <span class="link-box-icon">🧐</span>
-          <p class="link-box-text">Evaluate VLAs!</p>
-        </a>
-      </div>
+    <div class="link-pills">
+      <a class="link-pill" href="https://arxiv.org/pdf/2510.23571" target="_blank" rel="noopener noreferrer">
+        <img src="./static/images/pdf.svg" alt="">
+        <span>Paper</span>
+      </a>
+      <a class="link-pill is-disabled">
+        <img src="./static/images/github.svg" alt="">
+        <span>Code Coming Soon</span>
+      </a>
+      <a class="link-pill" href="https://robotarenainf.zhangyidi.tech/">
+        <span class="pill-emoji">🏆</span>
+        <span>Leaderboard</span>
+      </a>
+      <a class="link-pill" href="https://zhangyidi.tech/evaluation">
+        <span class="pill-emoji">🧐</span>
+        <span>Evaluate VLAs</span>
+      </a>
     </div>
   </div>
 </section>
 
+<!-- Video -->
 <section class="section" id="video" style="margin-top: 0rem;">
-  <div class="container is-max-desktop" style="margin-top: 0rem;">
-    <h2 class="title is-1 has-text-centered is-size-4-mobile"></h2>
-    <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 1rem; overflow: hidden;">
-      <video controls muted loop playsinline
+  <div class="container is-max-desktop">
+    <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 1rem; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.12);">
+      <video autoplay controls muted loop playsinline preload="auto"
              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
         <source src="./static/videos/arena.mp4" type="video/mp4">
       </video>
@@ -135,14 +150,18 @@
   </div>
 </section>
 
-<section class="section">
+<!-- Abstract -->
+<section class="section section-alt" id="abstract">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
+        <h2 class="title is-3 section-heading">Abstract</h2>
+        <div class="callout-box" style="text-align: left; margin-top: 1.5rem;">
+          We introduce a scalable benchmark that converts real-world robot demonstrations into simulated environments and evaluates VLA policies with both automated VLM scoring and crowd-sourced human preferences.
+        </div>
         <div class="content has-text-justified">
           <p>
-            The pursuit of robot generalists—instructable agents capable of performing diverse tasks across diverse environments—demands rigorous and scalable evaluation. Yet real-world testing of robot policies remains fundamentally constrained: it is labor-intensive, slow, unsafe at scale, and difficult to reproduce. Existing simulation benchmarks are similarly limited, as they train and test policies within the same synthetic domains and cannot assess models trained primarily on real-world demonstrations, which is the dominant paradigm for today's vision-language-action (VLA) models. As policies expand in scope and complexity, these barriers only intensify, since defining "success" in robotics often hinges on nuanced human judgments of execution quality.  In this paper, we introduce a new benchmarking framework that overcomes these challenges by shifting VLA evaluation into large-scale simulated environments augmented with online human feedback. Leveraging advances in vision-language models, 2D-to-3D generative modeling, and differentiable rendering, our approach automatically converts video demonstrations from widely used robot datasets into simulated counterparts. Within these digital twins, we assess VLA policies using both automated VLM-guided scoring and scalable human preference judgments collected from crowdworkers—transforming human involvement from tedious scene setup, resetting, and safety supervision into lightweight preference comparisons. To measure robustness, we systematically perturb simulated environments along multiple axes— textures and object placements — stress-testing policy generalization under controlled variation. The result is a continuously evolving, reproducible, and scalable benchmark for real-world-trained robot manipulation policies, addressing a critical missing capability in today's robotics landscape.
+            The pursuit of <strong>robot generalists</strong>—instructable agents capable of performing diverse tasks across diverse environments—demands rigorous and scalable evaluation. Yet real-world testing of robot policies remains fundamentally constrained: it is labor-intensive, slow, unsafe at scale, and difficult to reproduce. Existing simulation benchmarks are similarly limited, as they train and test policies within the same synthetic domains and cannot assess models trained primarily on <strong>real-world demonstrations</strong>, which is the dominant paradigm for today's vision-language-action (VLA) models. As policies expand in scope and complexity, these barriers only intensify, since defining "success" in robotics often hinges on nuanced human judgments of execution quality.  In this paper, we introduce a new benchmarking framework that overcomes these challenges by <strong>shifting VLA evaluation into large-scale simulated environments augmented with online human feedback</strong>. Leveraging advances in vision-language models, 2D-to-3D generative modeling, and differentiable rendering, our approach automatically converts video demonstrations from widely used robot datasets into simulated counterparts. Within these digital twins, we assess VLA policies using both <strong>automated VLM-guided scoring</strong> and <strong>scalable human preference judgments</strong> collected from crowdworkers—transforming human involvement from tedious scene setup, resetting, and safety supervision into lightweight preference comparisons. To measure robustness, we systematically perturb simulated environments along multiple axes— textures and object placements — stress-testing policy generalization under controlled variation. The result is a continuously evolving, reproducible, and scalable benchmark for real-world-trained robot manipulation policies, addressing a critical missing capability in today's robotics landscape.
           </p>
         </div>
       </div>
@@ -150,13 +169,14 @@
   </div>
 </section>
 
+<!-- Pipeline Figure -->
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <div class="content has-text-centered">
-          <img src="./static/images/teaser.jpg" alt="Project pipeline diagram">
-          <p class="is-size-5" style="margin-top: 1rem;">
+        <div class="content-card">
+          <img src="./static/images/teaser.jpg" alt="Real-to-Sim translation pipeline diagram" loading="lazy" style="width: 100%;">
+          <p class="is-size-5" style="margin-top: 1rem; color: #666;">
             An overview of our Real-to-Sim translation pipeline for generating unlimited benchmark environments.
           </p>
         </div>
@@ -165,61 +185,56 @@
   </div>
 </section>
 
-<section class="section">
+<!-- Real-to-Sim -->
+<section class="section section-alt" id="real2sim">
   <div class="container">
-    <h2 class="title is-3 has-text-centered">🤖 Real-To-Sim translation for Benchmark Environment Creation</h2>
-    <h3 class="title is-5 has-text-centered">Select a scenario from the slider below to see the real-world robot video demonstration and its translation in simulation.</h3>
+    <h2 class="title is-3 has-text-centered"><span class="section-heading">🤖 Real-To-Sim Translation</span></h2>
+    <h3 class="title is-5 has-text-centered" style="color: #666; font-weight: 400;">Select a scenario from the slider below to see the real-world robot video demonstration and its translation in simulation.</h3>
   </div>
 
   <div class="container" style="margin-top: 2rem;">
       <div id="gallery-carousel">
-          <!-- <div class="thumbnail-item" data-real-video="./static/videos/real2sim/real1.mp4" data-sim-video="./static/videos/real2sim/sim1.mp4" data-caption="Put the yellow object on top of the green object.">
-              <img src="./static/images/real2sim/thumb1.jpg" alt="Thumbnail 1">
-          </div> -->
           <div class="thumbnail-item" data-real-video="./static/videos/real2sim/real2.mp4" data-sim-video="./static/videos/real2sim/sim2.mp4" data-caption="Put the stuffed dog in the pot.">
-              <img src="./static/images/real2sim/thumb2.jpg" alt="Thumbnail 2">
+              <img src="./static/images/real2sim/thumb2.jpg" alt="Put the stuffed dog in the pot" loading="lazy">
           </div>
           <div class="thumbnail-item" data-real-video="./static/videos/real2sim/real18.mp4" data-sim-video="./static/videos/real2sim/sim18.mp4" data-caption="Clean the tabletop with a sponge.">
-              <img src="./static/images/real2sim/thumb18.jpg" alt="Thumbnail 3">
+              <img src="./static/images/real2sim/thumb18.jpg" alt="Clean the tabletop with a sponge" loading="lazy">
           </div>
           <div class="thumbnail-item" data-real-video="./static/videos/real2sim/real15.mp4" data-sim-video="./static/videos/real2sim/sim15.mp4" data-caption="Use cup to pour something granular.">
-              <img src="./static/images/real2sim/thumb15.jpg" alt="Thumbnail 4">
+              <img src="./static/images/real2sim/thumb15.jpg" alt="Use cup to pour something granular" loading="lazy">
           </div>
-          <!-- <div class="thumbnail-item" data-real-video="./static/videos/real2sim/real4.mp4" data-sim-video="./static/videos/real2sim/sim4.mp4" data-caption="Move the silver basket to the right burner.">
-              <img src="./static/images/real2sim/thumb4.jpg" alt="Thumbnail 5">
-          </div> -->
           <div class="thumbnail-item" data-real-video="./static/videos/real2sim/real20.mp4" data-sim-video="./static/videos/real2sim/sim20.mp4" data-caption="Close a sliding window.">
-              <img src="./static/images/real2sim/thumb20.jpg" alt="Thumbnail 6">
+              <img src="./static/images/real2sim/thumb20.jpg" alt="Close a sliding window" loading="lazy">
           </div>
           <div class="thumbnail-item" data-real-video="./static/videos/real2sim/real10.mp4" data-sim-video="./static/videos/real2sim/sim10.mp4" data-caption="Place the spoon to the left of the cloth.">
-              <img src="./static/images/real2sim/thumb10.jpg" alt="Thumbnail 10">
+              <img src="./static/images/real2sim/thumb10.jpg" alt="Place the spoon to the left of the cloth" loading="lazy">
           </div>
           <div class="thumbnail-item" data-real-video="./static/videos/real2sim/real16.mp4" data-sim-video="./static/videos/real2sim/sim16.mp4" data-caption="Move the grey tape to the right.">
-              <img src="./static/images/real2sim/thumb16.jpg" alt="Thumbnail 11">
+              <img src="./static/images/real2sim/thumb16.jpg" alt="Move the grey tape to the right" loading="lazy">
           </div>
           <div class="thumbnail-item" data-real-video="./static/videos/real2sim/real12.mp4" data-sim-video="./static/videos/real2sim/sim12.mp4" data-caption="Put pot or pan on stove and put mushroom in pot or pan.">
-              <img src="./static/images/real2sim/thumb12.jpg" alt="Thumbnail 12">
+              <img src="./static/images/real2sim/thumb12.jpg" alt="Put pot or pan on stove and put mushroom in pot or pan" loading="lazy">
           </div>
           <div class="thumbnail-item" data-real-video="./static/videos/real2sim/real13.mp4" data-sim-video="./static/videos/real2sim/sim13.mp4" data-caption="Put the pot on the cloth.">
-              <img src="./static/images/real2sim/thumb13.jpg" alt="Thumbnail 13">
+              <img src="./static/images/real2sim/thumb13.jpg" alt="Put the pot on the cloth" loading="lazy">
           </div>
           <div class="thumbnail-item" data-real-video="./static/videos/real2sim/real11.mp4" data-sim-video="./static/videos/real2sim/sim11.mp4" data-caption="Put banana in colander.">
-              <img src="./static/images/real2sim/thumb11.jpg" alt="Thumbnail 15">
+              <img src="./static/images/real2sim/thumb11.jpg" alt="Put banana in colander" loading="lazy">
           </div>
           <div class="thumbnail-item" data-real-video="./static/videos/real2sim/real9.mp4" data-sim-video="./static/videos/real2sim/sim9.mp4" data-caption="Place the silver pot on top of the blue cloth.">
-              <img src="./static/images/real2sim/thumb9.jpg" alt="Thumbnail 16">
+              <img src="./static/images/real2sim/thumb9.jpg" alt="Place the silver pot on top of the blue cloth" loading="lazy">
           </div>
           <div class="thumbnail-item" data-real-video="./static/videos/real2sim/real17.mp4" data-sim-video="./static/videos/real2sim/sim17.mp4" data-caption="Move the green cup to the right.">
-              <img src="./static/images/real2sim/thumb17.jpg" alt="Thumbnail 17">
+              <img src="./static/images/real2sim/thumb17.jpg" alt="Move the green cup to the right" loading="lazy">
           </div>
           <div class="thumbnail-item" data-real-video="./static/videos/real2sim/real3.mp4" data-sim-video="./static/videos/real2sim/sim3.mp4" data-caption="Move the pot to the towel.">
-              <img src="./static/images/real2sim/thumb3.jpg" alt="Thumbnail 18">
+              <img src="./static/images/real2sim/thumb3.jpg" alt="Move the pot to the towel" loading="lazy">
           </div>
           <div class="thumbnail-item" data-real-video="./static/videos/real2sim/real19.mp4" data-sim-video="./static/videos/real2sim/sim19.mp4" data-caption="Pick up the small bottle and put it on the left side of the table.">
-              <img src="./static/images/real2sim/thumb19.jpg" alt="Thumbnail 19">
+              <img src="./static/images/real2sim/thumb19.jpg" alt="Pick up the small bottle and put it on the left side of the table" loading="lazy">
           </div>
           <div class="thumbnail-item" data-real-video="./static/videos/real2sim/real5.mp4" data-sim-video="./static/videos/real2sim/sim5.mp4" data-caption="Move blue cloth from center to right bottom corner.">
-              <img src="./static/images/real2sim/thumb5.jpg" alt="Thumbnail 20">
+              <img src="./static/images/real2sim/thumb5.jpg" alt="Move blue cloth from center to right bottom corner" loading="lazy">
           </div>
       </div>
   </div>
@@ -227,13 +242,17 @@
   <div class="container" style="margin-top: 2rem;">
       <div class="columns is-vcentered" id="gallery-main-display">
           <div class="column">
-              <h4 class="title is-4 has-text-centered">Robot video demonstration</h4>
+              <div class="has-text-centered">
+                <span class="video-badge is-real">Real</span>
+              </div>
               <div class="video-container">
                   <video id="real-video-player" autoplay controls muted loop playsinline></video>
               </div>
           </div>
           <div class="column">
-              <h4 class="title is-4 has-text-centered">Simulated Arena</h4>
+              <div class="has-text-centered">
+                <span class="video-badge is-sim">Sim</span>
+              </div>
               <div class="video-container">
                   <video id="sim-video-player" autoplay controls muted loop playsinline></video>
               </div>
@@ -243,32 +262,30 @@
   </div>
 </section>
 
-<section class="section">
+<!-- Perturbations -->
+<section class="section" id="perturbations">
   <div class="container">
-    <h2 class="title is-3 has-text-centered">🧪 Scene Perturbations</h2>
-    <h3 class="title is-5 has-text-centered">Select a scenario from the slider and a perturbation type to view the simulated arena.</h3>
+    <h2 class="title is-3 has-text-centered"><span class="section-heading">🧪 Scene Perturbations</span></h2>
+    <h3 class="title is-5 has-text-centered" style="color: #666; font-weight: 400;">Select a scenario from the slider and a perturbation type to view the simulated arena.</h3>
 
     <div id="pertube-carousel" class="carousel" style="margin-top: 2rem;">
       <div class="thumbnail-item" data-scene-key="scene1">
-        <img src="./static/images/pertube/scene1.jpg" alt="Thumbnail 1">
+        <img src="./static/images/pertube/scene1.jpg" alt="Fork near yellow cloth scenario" loading="lazy">
       </div>
-      <!-- <div class="thumbnail-item" data-scene-key="scene2">
-        <img src="./static/images/pertube/scene2.jpg" alt="Thumbnail 2">
-      </div> -->
       <div class="thumbnail-item" data-scene-key="scene3">
-        <img src="./static/images/pertube/scene3.jpg" alt="Thumbnail 3">
+        <img src="./static/images/pertube/scene3.jpg" alt="Banana in colander scenario" loading="lazy">
       </div>
       <div class="thumbnail-item" data-scene-key="scene4">
-        <img src="./static/images/pertube/scene4.jpg" alt="Thumbnail 4">
+        <img src="./static/images/pertube/scene4.jpg" alt="Can to upper right scenario" loading="lazy">
       </div>
       <div class="thumbnail-item" data-scene-key="scene5">
-        <img src="./static/images/pertube/scene5.jpg" alt="Thumbnail 5">
+        <img src="./static/images/pertube/scene5.jpg" alt="Blue cloth movement scenario" loading="lazy">
       </div>
       <div class="thumbnail-item" data-scene-key="scene6">
-        <img src="./static/images/pertube/scene6.jpg" alt="Thumbnail 6">
+        <img src="./static/images/pertube/scene6.jpg" alt="Yellow on green object scenario" loading="lazy">
       </div>
       <div class="thumbnail-item" data-scene-key="scene7">
-        <img src="./static/images/pertube/scene7.jpg" alt="Thumbnail 7">
+        <img src="./static/images/pertube/scene7.jpg" alt="Stuffed dog in pot scenario" loading="lazy">
       </div>
     </div>
     
@@ -299,91 +316,71 @@
   </div>
 </section>
 
-<section class="section">
+<!-- Leaderboard -->
+<section class="section section-alt" id="leaderboard">
   <div class="container">
-    <h2 class="title is-3 has-text-centered">🏆 RobotArena \(\infty\)  LeaderBoard</h2>
+    <h2 class="title is-3 has-text-centered"><span class="section-heading">🏆 RobotArena \(\infty\) LeaderBoard</span></h2>
 
-    <div class="tabs is-centered is-boxed is-medium" id="eval-tabs">
-      <ul>
-        <li class="is-active" data-target="human"><a>👍 Human Preference Scores</a></li>
-        <li data-target="vlm"><a>📊 VLM-based Task Progression Scores</a></li>
-      </ul>
-    </div>
-
-    <div id="eval-content">
-
-      <div class="eval-panel" id="human">
-        <div class="columns is-centered" style="margin-top: 2rem;">
-          <div class="column is-four-fifths">
-            <img src="./static/images/eval/fig3.png" alt="BT scores for human preferences" />
-            <p class="has-text-centered" style="margin-top: 1rem; font-size: 1.3rem;">
-              Bradley-Terry scores calculated from crowd-sourced human preferences on execution videos. 
-
-            </p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="eval-panel is-hidden" id="vlm">
-        <div class="columns is-centered" style="margin-top: 2rem;">
-          <div class="column is-four-fifths">
-            <img src="./static/images/eval/fig1.png" alt="Task completion policy evaluation results (a)" />
-          </div>
-          </div>
-        <p class="has-text-centered" style="margin-top: 1rem; font-size: 1.3rem;">
-          Task progression scores from Gemini in RobotArena \(\infty\) environments.
-        </p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<script>
-  document.querySelectorAll('#eval-tabs li').forEach(tab => {
-    tab.addEventListener('click', () => {
-      // remove active from all
-      document.querySelectorAll('#eval-tabs li').forEach(li => li.classList.remove('is-active'));
-      tab.classList.add('is-active');
-
-      // hide all panels
-      document.querySelectorAll('.eval-panel').forEach(panel => panel.classList.add('is-hidden'));
-
-      // show target
-      const target = tab.getAttribute('data-target');
-      document.getElementById(target).classList.remove('is-hidden');
-    });
-  });
-</script>
-
-
-<section class="section is-small">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 is-size-4-mobile">BibTeX</h2>
-    <pre class="is-hidden-mobile">
-      <code>
-        @misc{jangir2025robotarenainftyscalablerobot,
-          title={RobotArena $\infty$: Scalable Robot Benchmarking via Real-to-Sim Translation}, 
-          author={Yash Jangir and Yidi Zhang and Kashu Yamazaki and Chenyu Zhang and Kuan-Hsun Tu and Tsung-Wei Ke and Lei Ke and Yonatan Bisk and Katerina Fragkiadaki},
-          year={2025},
-          eprint={2510.23571},
-          archivePrefix={arXiv},
-          primaryClass={cs.RO},
-          url={https://arxiv.org/abs/2510.23571}, 
-    }     
-      </code></pre>
-  </div>
-</section>
-
-<footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-          <p>
-            Website template borrowed from <a href="https://nerfies.github.io/">NeRFies</a> and <a href="https://umi-on-legs.github.io/">UMI on Legs</a>.
+    <div class="columns" style="margin-top: 2rem;">
+      <div class="column">
+        <div class="leaderboard-card">
+          <h3 class="title is-5 has-text-centered">👍 Human Preference Scores</h3>
+          <img src="./static/images/eval/fig3.png" alt="Bradley-Terry scores from human preferences" loading="lazy" style="width: 100%; height: auto;" />
+          <p class="has-text-centered" style="margin-top: 1rem; font-size: 0.95rem; color: #666;">
+            Bradley-Terry scores calculated from crowd-sourced human preferences on execution videos.
           </p>
         </div>
+      </div>
+      <div class="column">
+        <div class="leaderboard-card">
+          <h3 class="title is-5 has-text-centered">📊 VLM-based Task Progression Scores</h3>
+          <img src="./static/images/eval/fig1.png" alt="VLM task progression scores" loading="lazy" style="width: 100%; height: auto;" />
+          <p class="has-text-centered" style="margin-top: 1rem; font-size: 0.95rem; color: #666;">
+            Task progression scores from Gemini in RobotArena \(\infty\) environments.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BibTeX -->
+<section class="section" id="bibtex">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 is-size-4-mobile"><span class="section-heading">BibTeX</span></h2>
+    <div class="bibtex-wrapper" style="margin-top: 1.5rem;">
+      <button class="button is-small is-rounded bibtex-copy-btn" id="copy-bibtex" title="Copy to clipboard">
+        <span class="icon is-small"><i class="fas fa-copy"></i></span>
+        <span>Copy</span>
+      </button>
+      <pre><code id="bibtex-code">@misc{jangir2025robotarenainftyscalablerobot,
+  title={RobotArena $\infty$: Scalable Robot Benchmarking via Real-to-Sim Translation}, 
+  author={Yash Jangir and Yidi Zhang and Kashu Yamazaki and Chenyu Zhang and Kuan-Hsun Tu and Tsung-Wei Ke and Lei Ke and Yonatan Bisk and Katerina Fragkiadaki},
+  year={2025},
+  eprint={2510.23571},
+  archivePrefix={arXiv},
+  primaryClass={cs.RO},
+  url={https://arxiv.org/abs/2510.23571}, 
+}</code></pre>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer-dark">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8 has-text-centered">
+        <div class="footer-links">
+          <a href="https://arxiv.org/pdf/2510.23571" target="_blank" rel="noopener noreferrer">Paper</a>
+          <span class="footer-sep">&middot;</span>
+          <a href="https://robotarenainf.zhangyidi.tech/">Leaderboard</a>
+          <span class="footer-sep">&middot;</span>
+          <a href="https://zhangyidi.tech/evaluation">Evaluate VLAs</a>
+        </div>
+        <p>
+          Website template borrowed from <a href="https://nerfies.github.io/">NeRFies</a> and <a href="https://umi-on-legs.github.io/">UMI on Legs</a>.
+        </p>
       </div>
     </div>
   </div>
@@ -392,6 +389,101 @@
 <script src="./static/js/bulma-carousel.min.js"></script>
 <script src="./static/js/gallary.js"></script>
 <script src="./static/js/pertube.js"></script>
-<script src="./static/js/ood.js"></script>
+
+<script>
+// Sticky navbar: show/hide based on scroll position past hero
+(function() {
+  const nav = document.getElementById('site-nav');
+  const hero = document.querySelector('.hero.is-fullheight');
+
+  function onScroll() {
+    if (!hero) return;
+    const threshold = hero.offsetHeight - 60;
+    nav.classList.toggle('is-visible', window.scrollY > threshold);
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Mobile burger toggle
+  const burger = nav.querySelector('.navbar-burger');
+  const menu = document.getElementById('navMenu');
+  if (burger && menu) {
+    burger.addEventListener('click', function() {
+      burger.classList.toggle('is-active');
+      menu.classList.toggle('is-active');
+    });
+    menu.querySelectorAll('.navbar-item').forEach(function(item) {
+      if (item.getAttribute('href') && item.getAttribute('href').startsWith('#')) {
+        item.addEventListener('click', function() {
+          burger.classList.remove('is-active');
+          menu.classList.remove('is-active');
+        });
+      }
+    });
+  }
+})();
+
+// Active nav link highlighting on scroll
+(function() {
+  const navLinks = document.querySelectorAll('#site-nav .navbar-item[data-section]');
+  const sections = [];
+
+  navLinks.forEach(function(link) {
+    var id = link.getAttribute('data-section');
+    var el = document.getElementById(id);
+    if (el) sections.push({ id: id, el: el, link: link });
+  });
+
+  function updateActive() {
+    var scrollY = window.scrollY + 120;
+    var current = null;
+    for (var i = sections.length - 1; i >= 0; i--) {
+      if (scrollY >= sections[i].el.offsetTop) {
+        current = sections[i].id;
+        break;
+      }
+    }
+    navLinks.forEach(function(link) {
+      link.classList.toggle('is-active-section', link.getAttribute('data-section') === current);
+    });
+  }
+
+  window.addEventListener('scroll', updateActive, { passive: true });
+  updateActive();
+})();
+
+// BibTeX copy to clipboard
+document.getElementById('copy-bibtex').addEventListener('click', function() {
+  var code = document.getElementById('bibtex-code').textContent;
+  navigator.clipboard.writeText(code).then(function() {
+    var btn = document.getElementById('copy-bibtex');
+    var originalHTML = btn.innerHTML;
+    btn.innerHTML = '<span class="icon is-small"><i class="fas fa-check"></i></span><span>Copied!</span>';
+    btn.classList.add('is-success');
+    setTimeout(function() {
+      btn.innerHTML = originalHTML;
+      btn.classList.remove('is-success');
+    }, 2000);
+  });
+});
+
+// Scroll-triggered fade-in for sections
+(function() {
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.section, .section-alt').forEach(function(section) {
+    section.classList.add('fade-in-section');
+    observer.observe(section);
+  });
+})();
+</script>
+
 </body>
 </html>
