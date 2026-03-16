@@ -145,7 +145,7 @@
     <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 1rem; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.12);">
       <video autoplay controls muted loop playsinline preload="auto"
              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
-        <source src="./static/videos/release.mov" type="video/mp4">
+        <source src="./static/videos/release_new.mov" type="video/mp4">
       </video>
     </div>
   </div>
@@ -325,19 +325,19 @@
     <div class="columns" style="margin-top: 2rem;">
       <div class="column">
         <div class="leaderboard-card">
-          <h3 class="title is-5 has-text-centered">👍 Human Preference Scores</h3>
-          <img src="./static/images/eval/fig3.png" alt="Bradley-Terry scores from human preferences" loading="lazy" style="width: 100%; height: auto;" />
+          <h3 class="title is-5 has-text-centered">📊 VLM-based Task Progression Scores</h3>
+          <img src="./static/images/eval/fig1.png" alt="VLM task progression scores" loading="lazy" style="width: 100%; height: auto;" />
           <p class="has-text-centered" style="margin-top: 1rem; font-size: 0.95rem; color: #666;">
-            Bradley-Terry scores calculated from crowd-sourced human preferences on execution videos.
+            VLM Scoring
           </p>
         </div>
       </div>
       <div class="column">
         <div class="leaderboard-card">
-          <h3 class="title is-5 has-text-centered">📊 VLM-based Task Progression Scores</h3>
-          <img src="./static/images/eval/fig1.png" alt="VLM task progression scores" loading="lazy" style="width: 100%; height: auto;" />
+          <h3 class="title is-5 has-text-centered">👍 Human Preference Scores</h3>
+          <img src="./static/images/eval/btscores_new.png" alt="Bradley-Terry scores from human preferences" loading="lazy" style="width: 100%; height: auto;" />
           <p class="has-text-centered" style="margin-top: 1rem; font-size: 0.95rem; color: #666;">
-            Task progression scores from Gemini in RobotArena \(\infty\) environments.
+            Human Ranking
           </p>
         </div>
       </div>
@@ -356,7 +356,7 @@
       </button>
       <pre><code id="bibtex-code">@misc{jangir2025robotarenainftyscalablerobot,
   title={RobotArena $\infty$: Scalable Robot Benchmarking via Real-to-Sim Translation}, 
-  author={Yash Jangir and Yidi Zhang and Kashu Yamazaki and Chenyu Zhang and Kuan-Hsun Tu and Tsung-Wei Ke and Lei Ke and Yonatan Bisk and Katerina Fragkiadaki},
+  author={Yash Jangir and Yidi Zhang and Pang-Chi Lo and Kashu Yamazaki and Chenyu Zhang and Kuan-Hsun Tu and Tsung-Wei Ke and Lei Ke and Yonatan Bisk and Katerina Fragkiadaki},
   year={2025},
   eprint={2510.23571},
   archivePrefix={arXiv},
